@@ -256,9 +256,9 @@ void DrivenFeature::Update(float now, FaceAPIData* data, float adaptiveSmooth)
 	{
 		value = data->h_data[m_fapiIndex] * (m_reverse ? -1 : 1);
 		Neutralise(value, data->h_frameNum, data->h_frameDuration);
-		value = FadeIn(value, now);
 		Smooth(value, now, adaptiveSmooth);
 		Scale(value);
+		value = FadeIn(value, now);
 	}
 
 	if(m_isPose)
