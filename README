@@ -1,7 +1,4 @@
-
-author: Torben Sko (git@torbensko.com)
-
---- INTRO ---
+# INTRO
 
 This modification of the Source engine allows you to control the facial
 expression of the virtual characters using your own facial movements. The
@@ -9,7 +6,7 @@ system uses the non-commercial faceAPI to achieve the tracking. Those wishing
 to use this system will need to obtain a copy of the faceAPI.
 
 
---- LEGAL STUFF ---
+# LEGAL STUFF
 
 My code, namely the files found in the .../src/game/shared/faceapi directory,
 is provided under a Creative Commons Attribution license
@@ -39,95 +36,98 @@ If you would like to use the Source SDK or a Mod for a commercial purpose or
 activity, please contact Valve at sourceengine@valvesoftware.com"
 
 
---- REQUIREMENTS --- 
+# REQUIREMENTS
 
-The non-commercial faceAPI 4 (tested with 4.0.0.2121a13) - to obtain a demo
-version, please contact Seeing Machines (http://www.seeingmachines.com) 
+-   The non-commercial faceAPI 4 (tested with 4.0.0.2121a13) - to obtain a demo version, please contact Seeing Machines (http://www.seeingmachines.com)
 
-Steam - a free program available from Valve
+-   Steam - a free program available from Valve
 
 
---- SETTING IT ALL UP ---
+# SETTING IT ALL UP
 
 Just to make your life difficult, I haven't included either the faceAPI or the
 Source engine in this repo, so you'll need to do a bit of work before you have
 this puppy up and running. That said, if you follow these steps closely you
 should have it running pretty quickly.
 
-1. Grab Steam (http://store.steampowered.com/about/), install it, signup, grab
-Team Fortress 2 (it's free, yay) and then download the Source SDK (now listed
-under the Tools section of your Library)
+1.  Grab Steam (http://store.steampowered.com/about/), install it, signup, grab
+    Team Fortress 2 (it's free, yay) and then download the Source SDK (now listed
+    under the Tools section of your Library)
 
-2.1 Open the Source SDK, select the Source SDK 2007 engine (note: whilst the
-2009 engine is listed, at the time of writing this the Source SDK 2009 Base -
-i.e. the files it requires to run - was not available) and choose "Create a
-Mod"
+2.  Open the Source SDK, select the Source SDK 2007 engine (note: whilst the
+    2009 engine is listed, at the time of writing this the Source SDK 2009 Base -
+    i.e. the files it requires to run - was not available) and choose **"Create a Mod"**
 
-2.2 To make life easier (for me at least), we will set the mod up like I do.
-Choose to "Modify Half-Life 2 Single Player". For the name pick anything that
-suits you. For the directory, specify your Source Mods folder e.g. "C:\Program
-Files (x86)\Steam\steamapps\sourcemods\", except add to the end of this path
-the name of your mod in lowercase letters and stripped of spaces and special
-characters. So if you decide to call your mod "Awesome Avatar", you'll need to
-add to the end of your path "awesomeavatar". From here on in, I will refer to
-this folder as your 'project folder' (YOUR_PROJECT_FOLDER)
+    To make life easier (for me at least), we will set the mod up like I do.
+    Choose to **"Modify Half-Life 2 Single Player"**. For the name pick anything that
+    suits you. For the directory, specify your Source Mods folder e.g. "C:\Program
+    Files (x86)\Steam\steamapps\sourcemods\", except add to the end of this path
+    the name of your mod in lowercase letters and stripped of spaces and special
+    characters. So if you decide to call your mod "Awesome Avatar", you'll need to
+    add to the end of your path "awesomeavatar". From here on in, I will refer to
+    this folder as your 'project folder' (PROJECT_FOLDER)
 
-3. Navigate to this folder and clone this repo to it. If you're having trouble
-cloning to a non-empty directory, I would suggest grabbing the zip version
-from the website and then manually dragging the files over (you should be able
-to drag them all over in one operation). When you do this some of the game
-files will be overwritten, however for the most part it's pretty unobtrusive.
+3.  Navigate to this folder and clone this repo to it. If you're having trouble
+    cloning to a non-empty directory, I would suggest grabbing the zip version
+    from the website and then manually dragging the files over (you should be able
+    to drag them all over in one operation). When you do this some of the game
+    files will be overwritten, however for the most part it's pretty unobtrusive.
 
-4. In the src folder, open the properties.vsprops file and change the
-ModFolder so that it matches your project folder path
+4.  In the src folder, open the properties.vsprops file and change the
+    ModFolder so that it matches your project folder path
 
-5. Assuming you have obtained a copy of faceAPI 4 from Seeing Machines, you
-should have a faceAPI zip which contains an API directory. Copy the 'bin'
-folder into your project folder. Copy the 'lib' and 'include' folders into
-your "YOUR_PROJECT_FOLDER/src/game/shared/faceapi" folder. Having done this,
-you should have the following directory structure:
+5.  Assuming you have obtained a copy of faceAPI 4 from Seeing Machines, you
+    should have a faceAPI zip which contains an API directory. Copy the 'bin'
+    folder into your project folder. Copy the 'lib' and 'include' folders into
+    your "PROJECT_FOLDER/src/game/shared/faceapi" folder. Having done this,
+    you should have the following directory structure:
 
-YOUR_PROJECT_FOLDER
-    bin
-        faceAPI Dlls
-        resources
-            ...
-        cal
-            ...
-    src
-        game
-            shared
-                faceapi
-                    include
-                        ...
-                    lib
-                        smft40.def
-                        smft40.lib
+        PROJECT_FOLDER
+            bin
+                faceAPI Dlls
+                resources
                     ...
+                cal
+                    ...
+            src
+                game
+                    shared
+                        faceapi
+                            include
+                                ...
+                            lib
+                                smft40.def
+                                smft40.lib
+                            ...
 
-6.1 Now to build the mod. Open the Game_Episodic.sln file in your src folder
-(you'll also have a Game_Episodic-2005.sln file, which is the original project
-file - feel free to delete that file). Note: that you may need to migrate this
-file, depending on your version of Visual Studio.
+6.  Building the mod:
 
-6.2 Make sure the system is set to build under Release mode (Build >
-Configuration Manager > Configuration set to Release)
+    1.  Now to build the mod. Open the Game_Episodic.sln file in your src folder
+        (you'll also have a Game_Episodic-2005.sln file, which is the original project
+        file - feel free to delete that file). Note: that you may need to migrate this
+        file, depending on your version of Visual Studio.
 
-6.3 Build the system.
+    2.  Make sure the system is set to build under Release mode (Build >
+        Configuration Manager > Configuration set to Release)
+        
+    3.  Build the system.
 
-6.4 To run the system under the debug mode, open the 'Client Episodic'
-properties and navigate to the Debugging settings. Change the settings to the
-following:
+    4.  To run the system under the debug mode, open the 'Client Episodic'
+        properties and navigate to the Debugging settings. Change the settings to the
+        following:
 
-COMMAND: 
-C:\Program Files (x86)\Steam\steamapps\YOUR_STEAM_USER_NAME\source sdk base 2007\hl2.exe
+        **COMMAND:**
 
-ARGUMENT: 
--dev -window -novid -game "C:\Program Files (x86)\Steam\steamapps\SourceMods\YOUR_PROJECT_FOLDER"
+            C:\Program Files (x86)\Steam\steamapps\YOUR_STEAM_USER_NAME\source sdk base 2007\hl2.exe
 
-DIRECTORY: 
-C:\Program Files (x86)\Steam\steamapps\YOUR_STEAM_USER_NAME\source sdk base 2007
+        **ARGUMENT:**
 
-If the game crashes when loading, try running 'Source SDK Base 2007' first and
-then relaunching your mod
+            -dev -window -novid -game "C:\Program Files (x86)\Steam\steamapps\SourceMods\PROJECT_FOLDER"
+
+        **DIRECTORY:**
+
+            C:\Program Files (x86)\Steam\steamapps\YOUR_STEAM_USER_NAME\source sdk base 2007
+
+        If the game crashes when loading, try running 'Source SDK Base 2007' first and
+        then relaunching your mod
 
