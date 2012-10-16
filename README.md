@@ -1,12 +1,11 @@
-# INTRO
+# Overview
 
 This modification of the Source engine allows you to control the facial
 expression of the virtual characters using your own facial movements. The
-system uses the non-commercial faceAPI to achieve the tracking. Those wishing
-to use this system will need to obtain a copy of the faceAPI.
+system uses faceAPI to achieve the tracking. Those wishing to use this system will need to obtain a copy of the faceAPI.
 
 
-# LEGAL STUFF
+# Legal stuff
 
 My code, namely the files found in the .../src/game/shared/faceapi directory,
 is provided under a Creative Commons Attribution license
@@ -36,7 +35,7 @@ If you would like to use the Source SDK or a Mod for a commercial purpose or
 activity, please contact Valve at sourceengine@valvesoftware.com"
 
 
-# REQUIREMENTS
+# Requirements
 
 -   **faceAPI 4** (tested with 4.0.0.2121a13) -- to obtain a demo version, please contact Seeing Machines (http://www.seeingmachines.com)
 
@@ -45,7 +44,7 @@ activity, please contact Valve at sourceengine@valvesoftware.com"
 -   **Visual Studio 2008** or above
 
 
-# SETTING IT ALL UP
+# Setting it all up
 
 Just to make your life difficult, I haven't included either the faceAPI or the
 Source engine in this repo, so you'll need to do a bit of work before you have
@@ -121,15 +120,15 @@ should have it running pretty quickly.
         properties and navigate to the Debugging settings. Change the settings to the
         following:
 
-        **COMMAND:**
+        **Command:**
 
             C:\Program Files (x86)\Steam\steamapps\YOUR_STEAM_USER_NAME\source sdk base 2007\hl2.exe
 
-        **ARGUMENT:**
+        **Argument:**
 
             -dev -window -novid -game "C:\Program Files (x86)\Steam\steamapps\SourceMods\PROJECT_FOLDER"
 
-        **DIRECTORY:**
+        **Directory:**
 
             C:\Program Files (x86)\Steam\steamapps\YOUR_STEAM_USER_NAME\source sdk base 2007
 
