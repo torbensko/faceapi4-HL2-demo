@@ -17,10 +17,10 @@ PARTICULAR PURPOSE.
 #include <string>
 #include <sstream>
 #include <map>
+//#include <boost/scoped_ptr.hpp>
 
 #include "sm_api.h"
-
-//#define SHOW_FACEAPI_WINDOW
+#include "sm_api_cxx.h"
 
 enum FaceAPIDataName {
 	UNDEFINED,
@@ -73,28 +73,27 @@ public:
 	FaceAPI();
 	void			Init();
 	void			Shutdown();
-	void			GetVersion(int &major, int &minor, int &maintenance);
 	void			GetCameraDetails(char *modelBuf, int bufLen, int &framerate, int &resWidth, int &resHeight);
 	void			RestartTracking();
 
-	FaceAPIData		GetHeadData();		// not a halting function
+	FaceAPIData		GetHeadData(); // not a halting function
 	float			GetTrackingConf();
 	
-	bool			InternalDataFetch();
+	void			InternalDataFetch();
+
+	bool			m_shuttingDown;
 
 protected:
-	smEngineHandle	engine_handle;
+	//boost::scoped_ptr<sm::faceapi::Camera>		camera;
+	//boost::scoped_ptr<sm::faceapi::HeadTrackerV2>	engine;
+	//boost::scoped_ptr<sm::faceapi::VideoDisplay>	video_display;
+	sm::faceapi::Camera			*faceapi_camera;
+	sm::faceapi::HeadTrackerV2	*faceapi_engine;
 
 	FaceAPIData		m_data[3];
 	int				m_currData;
 	int				m_nextData;
 	float			m_lastUpdate;
-
-	bool			m_shuttingDown;
-
-	int				m_versionMajor;
-	int				m_versionMinor;
-	int				m_versionMaintenance;
 
 	int				m_lastFrame;
 };

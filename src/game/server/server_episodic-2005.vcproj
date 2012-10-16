@@ -166,7 +166,7 @@
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
-				AdditionalIncludeDirectories="..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;.\;..\..\game\shared;..\..\utils\common;..\..\game\shared\hl2;..\..\game\shared\episodic;.\hl2;.\episodic;..\..\game\shared\faceapi\include"
+				AdditionalIncludeDirectories="..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;.\;..\..\game\shared;..\..\utils\common;..\..\game\shared\hl2;..\..\game\shared\episodic;.\hl2;.\episodic;..\..\faceapi\api\include;&quot;..\..\faceapi\libraries\c++\apilibcpp\include&quot;"
 				PreprocessorDefinitions="WIN32;_WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;GAME_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;fopen=dont_use_fopen;sprintf=use_Q_snprintf_instead_of_sprintf;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;HL2_DLL;HL2_EPISODIC;SP_SDK;USES_SAVERESTORE"
 				StringPooling="true"
 				ExceptionHandling="0"
@@ -205,7 +205,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				UseUnicodeResponseFiles="false"
-				AdditionalDependencies="winmm.lib ../shared/faceapi/lib/smft40.lib Ws2_32.lib"
+				AdditionalDependencies="..\..\faceapi\api\lib\sm_fa_api4.0.lib ..\..\faceapi\libraries\c++\apilibcpp\lib_release\vs2008\sm_fa_apilibcpp.lib winmm.lib Ws2_32.lib"
 				ShowProgress="0"
 				OutputFile="$(OutDir)/Server.dll"
 				LinkIncremental="1"
@@ -4512,6 +4512,182 @@
 					RelativePath="..\shared\faceapi\util.h"
 					>
 				</File>
+				<Filter
+					Name="include_cpp_lib"
+					>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_camera.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_camerainfo.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_engine.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_enginedata.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_error.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_facesearch.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_filetracker.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_headtracker.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_headtrackerv2.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_headtrackerv3.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_image.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_string.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_time.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\libraries\c++\apilibcpp\include\sm_api_cxx_videodisplay.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="include_faceapi"
+					>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_ar.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_camera.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_cameratypes.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_configure.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_coordutils.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_engine.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_enginecontrols.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_enginedatatypes.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_facelandmark.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_facesearch.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_facetexture.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_filetrack.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_geomtypes.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_headtracker.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_headtrackercontrols.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_headtrackerv2controls.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_image.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_imagetypes.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_logging.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_poppack.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_pshpack.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_returncodes.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_string.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_time.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_uuid.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\faceapi\api\include\sm_api_videodisplay.h"
+						>
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="OSC"
