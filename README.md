@@ -38,9 +38,11 @@ activity, please contact Valve at sourceengine@valvesoftware.com"
 
 # REQUIREMENTS
 
--   The non-commercial faceAPI 4 (tested with 4.0.0.2121a13) - to obtain a demo version, please contact Seeing Machines (http://www.seeingmachines.com)
+-   **faceAPI 4** (tested with 4.0.0.2121a13) -- to obtain a demo version, please contact Seeing Machines (http://www.seeingmachines.com)
 
--   Steam - a free program available from Valve
+-   **Steam** -- a free program available from Valve
+
+-   **Visual Studio 2008** or above
 
 
 # SETTING IT ALL UP
@@ -63,8 +65,8 @@ should have it running pretty quickly.
     suits you. For the directory, specify your Source Mods folder e.g. "C:\Program
     Files (x86)\Steam\steamapps\sourcemods\", except add to the end of this path
     the name of your mod in lowercase letters and stripped of spaces and special
-    characters. So if you decide to call your mod "Awesome Avatar", you'll need to
-    add to the end of your path "awesomeavatar". From here on in, I will refer to
+    characters. So if you decide to call your mod "GitHub Avatar", you'll need to
+    add to the end of your path "githubavatar". From here on in, I will refer to
     this folder as your 'project folder' (PROJECT_FOLDER)
 
 3.  Navigate to this folder and clone this repo to it. If you're having trouble
@@ -77,10 +79,13 @@ should have it running pretty quickly.
     ModFolder so that it matches your project folder path
 
 5.  Assuming you have obtained a copy of faceAPI 4 from Seeing Machines, you
-    should have a faceAPI zip which contains an API directory. Copy the 'bin'
-    folder into your project folder. Copy the 'lib' and 'include' folders into
-    your "PROJECT_FOLDER/src/game/shared/faceapi" folder. Having done this,
-    you should have the following directory structure:
+    should have a faceAPI zip which contains an API directory. Ensuring you're using the x86 version of this library:
+
+    1. Copy the 'bin' folder into your project folder.
+
+    2. Copy the 'lib' and 'include' folders into your "PROJECT_FOLDER/src/game/shared/faceapi" folder. 
+
+    Having done this, you should have the following directory structure:
 
         PROJECT_FOLDER
             bin
@@ -102,15 +107,15 @@ should have it running pretty quickly.
 
 6.  Building the mod:
 
-    1.  Now to build the mod. Open the Game_Episodic.sln file in your src folder
-        (you'll also have a Game_Episodic-2005.sln file, which is the original project
-        file - feel free to delete that file). Note: that you may need to migrate this
-        file, depending on your version of Visual Studio.
+    1.  Now to build the mod. Open the Game_Episodic.sln file in your src folder. *You may need to migrate this file, depending on your version of Visual Studio.*
+        
+        You'll also have a Game_Episodic-2005.sln file, which is the original project
+        file - feel free to delete it.
 
     2.  Make sure the system is set to build under Release mode (Build >
         Configuration Manager > Configuration set to Release)
         
-    3.  Build the system.
+    3.  Build the solution (F7).
 
     4.  To run the system under the debug mode, open the 'Client Episodic'
         properties and navigate to the Debugging settings. Change the settings to the

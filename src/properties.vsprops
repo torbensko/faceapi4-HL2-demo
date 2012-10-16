@@ -6,7 +6,7 @@
     >
     <UserMacro
     	Name="DestinationFolder"
-    	Value="C:\Program Files (x86)\Steam\steamapps\sourcemods\avatar\bin"
+    	Value="C:\Program Files (x86)\Steam\steamapps\sourcemods\githubavatar\bin"
     	PerformEnvironmentSet="true"
     />
 </VisualStudioPropertySheet>
