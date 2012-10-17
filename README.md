@@ -51,87 +51,90 @@ Source engine in this repo, so you'll need to do a bit of work before you have
 this puppy up and running. That said, if you follow these steps closely you
 should have it running pretty quickly.
 
-1.  Grab Steam (http://store.steampowered.com/about/), install it, signup, grab
-    Team Fortress 2 (it's free, yay) and then download the Source SDK (now listed
-    under the Tools section of your Library)
+1.  Getting the software:
 
-2.  Open the Source SDK, select the Source SDK 2007 engine (note: whilst the
+    1.  Install Steam (http://store.steampowered.com/about/) and sign-up
+
+    2.  Grab *Team Fortress 2* or another Source title (this is required in order to gain access to the Source SDK)
+
+    3.  Download the *Source SDK*, listed under the Tools section of your Library
+
+2.  Setting up the game files:
+
+    1.  Open the *Source SDK*
+
+    2.  At the bottom of the window select the *Source SDK 2007* engine (whilst the
     2009 engine is listed, at the time of writing this the Source SDK 2009 Base -
-    i.e. the files it requires to run - was not available) and choose **"Create a Mod"**
+    i.e. the files it requires to run - was not available)
 
-    To make life easier (for me at least), we will set the mod up like I do.
-    Choose to **"Modify Half-Life 2 Single Player"**. For the name pick anything that
-    suits you. For the directory, specify your Source Mods folder e.g. "C:\Program
-    Files (x86)\Steam\steamapps\sourcemods\", except add to the end of this path
-    the name of your mod in lowercase letters and stripped of spaces and special
-    characters. So if you decide to call your mod "GitHub Avatar", you'll need to
-    add to the end of your path "githubavatar". From here on in, I will refer to
-    this folder as your 'project folder' (PROJECT_FOLDER)
+    3.  Select **Create a Mod**
 
-3.  Navigate to this folder and clone this repo to it. If you're having trouble
+    4.  Within the dialog that pops up, choose to **Modify Half-Life 2 Single Player**
+
+    5.  For the name pick anything that suits you. For the directory, specify your Source Mods folder e.g. "C:\Program Files (x86)\Steam\steamapps\sourcemods\", except add to the end of this path the name of your mod in lowercase letters and stripped of spaces and special characters. So if you decide to call your mod "GitHub Avatar", you'll need to add to the end of your path "githubavatar". From here on in, I will refer to this folder as your 'project folder' (PROJECT_FOLDER)
+
+    6.  Navigate to this folder and clone this repo to it. If you're having trouble
     cloning to a non-empty directory, I would suggest grabbing the zip version
     from the website and then manually dragging the files over (you should be able
     to drag them all over in one operation). When you do this some of the game
     files will be overwritten, however for the most part it's pretty unobtrusive.
 
-4.  In the src folder, open the properties.vsprops file and change the
-    ModFolder so that it matches your project folder path
+    5.  Assuming you have obtained a copy of faceAPI 4 from Seeing Machines, you should have a faceAPI zip which contains the following:
 
-5.  Assuming you have obtained a copy of faceAPI 4 from Seeing Machines, you
-    should have a faceAPI zip which contains an API directory. Ensuring you're using the x86 version of this library:
+            faceapi-VERSION
+                api [directory]
+                libraries [directory]
+                ...
 
-    1. Copy the 'bin' folder into your project folder.
+        Do the following:
 
-    2. Copy the 'lib' and 'include' folders into your "PROJECT_FOLDER/src/game/shared/faceapi" folder. 
+        1.  Copy the entire faceapi directory (as contained in the zip file) to your PROJECT_FOLDER. In doing so, rename the folder "faceapi", i.e. remove the version number.
 
-    Having done this, you should have the following directory structure:
+        2.  Make a copy of the faceapi/api/bin folder and place it in your PROJECT_FOLDER
 
-        PROJECT_FOLDER
-            bin
-                faceAPI Dlls
-                resources
-                    ...
-                cal
-                    ...
-            src
-                game
-                    shared
-                        faceapi
-                            include
-                                ...
-                            lib
-                                smft40.def
-                                smft40.lib
-                            ...
+        Having done this, you should have the following directory structure:
 
-6.  Building the mod:
+            PROJECT_FOLDER
+                bin
+                    resources [directory]
+                    cal [directory]
+                    faceAPI files (.dll)
+                faceapi
+                    api [directory]
+                    libraries [directory]
+                    ... 
+                src
+                    game
+                        shared
+                            faceapi
+                                source code (.cpp)
 
-    1.  Now to build the mod. Open the Game_Episodic.sln file in your src folder. *You may need to migrate this file, depending on your version of Visual Studio.*
+6.  Building the game:
+
+    4.  In the *src* folder, open the properties.vsprops file and change the ModFolder so that it matches your project folder path (if you used the same naming convention suggested above, this shouldn't need changing)
+
+    1.  Open the Game_Episodic.sln file in your src folder. You may need to migrate this file, depending on your version of Visual Studio.
         
-        You'll also have a Game_Episodic-2005.sln file, which is the original project
-        file - feel free to delete it.
+    2.  Make sure the system is set to build under *Release* mode (*Build > Configuration Manager*)
 
-    2.  Make sure the system is set to build under Release mode (Build >
-        Configuration Manager > Configuration set to Release)
+    3.  Open the settings for the "apilibcpp.vs2008" project and under *Configuration Properties > C/C++ > Code Generation* set *Runtime Library* to **Multi-threaded (/MT)** (rather than **Multi-threaded DLL (/MD)**)
         
-    3.  Build the solution (F7).
+    4.  Build the solution (F7).
 
-    4.  To run the system under the debug mode, open the 'Client Episodic'
-        properties and navigate to the Debugging settings. Change the settings to the
-        following:
+7.  To run the game, open the properties for the "Client Episodic" project and navigate to the Debugging settings. Change the settings to the following:
 
-        **Command:**
+    **Command:**
 
-            C:\Program Files (x86)\Steam\steamapps\YOUR_STEAM_USER_NAME\source sdk base 2007\hl2.exe
+        C:\Program Files (x86)\Steam\steamapps\YOUR_STEAM_USER_NAME\source sdk base 2007\hl2.exe
 
-        **Argument:**
+    **Argument:**
 
-            -dev -window -novid -game "C:\Program Files (x86)\Steam\steamapps\SourceMods\PROJECT_FOLDER"
+        -dev -window -novid -game "C:\Program Files (x86)\Steam\steamapps\SourceMods\PROJECT_FOLDER"
 
-        **Directory:**
+    **Directory:**
 
-            C:\Program Files (x86)\Steam\steamapps\YOUR_STEAM_USER_NAME\source sdk base 2007
+        C:\Program Files (x86)\Steam\steamapps\YOUR_STEAM_USER_NAME\source sdk base 2007
 
-        If the game crashes when loading, try running 'Source SDK Base 2007' first and
-        then relaunching your mod
+    If the game crashes when loading, try running 'Source SDK Base 2007' first and
+    then relaunching your mod
 
