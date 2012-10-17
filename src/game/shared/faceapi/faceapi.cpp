@@ -24,6 +24,8 @@ by Seeing Machines' faceAPI.
 #include "convar.h"
 #include "faceapi.h"
 
+#include "sm_api.h"
+
 //#define BROADCAST_OSC
 
 #ifdef BROADCAST_OSC
@@ -92,7 +94,7 @@ void FaceAPI::Init()
     smLoggingSetFileOutputEnable(true);
 
 	// Initialize faceAPI
-	faceAPIScope apiscope(DISABLE_GUI);
+	faceapi_api = new faceAPIScope();
 
     // Register windows webcam camera type
     CameraInfoList::registerType(SM_API_CAMERA_TYPE_WDM);
@@ -125,10 +127,10 @@ void FaceAPI::Init()
         faceapi_engine->setLipTrackingEnabled(true);
         faceapi_engine->setEyebrowTrackingEnabled(true);
         faceapi_engine->setEyeClosureTrackingEnabled(true);
-        if (faceapi_engine->getNumGPUs() > 0)
-        {
-            faceapi_engine->setGPUAcceleration(true);
-        }
+        //if (faceapi_engine->getNumGPUs() > 0)
+        //{
+        //    faceapi_engine->setGPUAcceleration(true);
+        //}
     }
 
     // Start tracking
@@ -151,6 +153,7 @@ void FaceAPI::Shutdown()
     faceapi_engine->stop();
 
 	delete faceapi_engine;
+	delete faceapi_api;
 }
 
 void FaceAPI::RestartTracking()

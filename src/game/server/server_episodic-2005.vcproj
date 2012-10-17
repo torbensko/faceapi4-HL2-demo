@@ -205,7 +205,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				UseUnicodeResponseFiles="false"
-				AdditionalDependencies="..\..\faceapi\api\lib\sm_fa_api4.0.lib ..\..\faceapi\libraries\c++\apilibcpp\lib_release\vs2008\sm_fa_apilibcpp.lib winmm.lib Ws2_32.lib"
+				AdditionalDependencies="..\..\faceapi\libraries\c++\apilibcpp\lib_release\vs2008\sm_fa_apilibcpp.lib ..\..\faceapi\api\lib\sm_fa_api4.0.lib winmm.lib Ws2_32.lib"
 				ShowProgress="0"
 				OutputFile="$(OutDir)/Server.dll"
 				LinkIncremental="1"

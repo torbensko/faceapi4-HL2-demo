@@ -19,7 +19,6 @@ PARTICULAR PURPOSE.
 #include <map>
 //#include <boost/scoped_ptr.hpp>
 
-#include "sm_api.h"
 #include "sm_api_cxx.h"
 
 enum FaceAPIDataName {
@@ -87,6 +86,7 @@ protected:
 	//boost::scoped_ptr<sm::faceapi::Camera>		camera;
 	//boost::scoped_ptr<sm::faceapi::HeadTrackerV2>	engine;
 	//boost::scoped_ptr<sm::faceapi::VideoDisplay>	video_display;
+	sm::faceapi::faceAPIScope	*faceapi_api;
 	sm::faceapi::Camera			*faceapi_camera;
 	sm::faceapi::HeadTrackerV2	*faceapi_engine;
 
