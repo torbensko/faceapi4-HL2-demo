@@ -62,7 +62,7 @@ FaceAPI*	_faceapi;
 void __cdecl FaceAPI_dataFetcher(void *)
 {
 	_faceapi_fetcher_running = true;
-	while(_faceapi->m_shuttingDown) 
+	while(!_faceapi->m_shuttingDown) 
 	{
 		_faceapi->InternalDataFetch();
 	}
@@ -199,6 +199,8 @@ void FaceAPI::InternalDataFetch()
 		m_data[m_nextData].h_data[HEADPOS_PITCH]	= person_data.head_pose_data->head_rot.x_rads;
 		m_data[m_nextData].h_data[HEADPOS_YAW]		= person_data.head_pose_data->head_rot.y_rads;
 		m_data[m_nextData].h_data[HEADPOS_ROLL]		= person_data.head_pose_data->head_rot.z_rads;
+
+		DevMsg("%.2f\n", m_data[m_nextData].h_confidence);
 	}
 
 	if(person_data.eye_data)
